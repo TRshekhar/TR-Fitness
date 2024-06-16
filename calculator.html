@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+</head>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+        background-image: url('gymbg.jpeg');
+        /* background-position: center; */
+        /* background-repeat: no-repeat; */
+        /* background-size: cover; */
+        /* backdrop-filter: blur(8px); */
+        color: whitesmoke;
+        text-decoration: none;
+    }
+
+    nav{
+        margin: 3% 2%;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #logo{
+        display: flex;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #logo img{
+        border: 2px solid rgb(176, 176, 255);
+        border-radius: 50%;
+        width: 40%;
+        height: 80%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #nav_bar{
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        flex: 6;
+        gap: 25px;
+        padding-bottom: 10px;
+        padding-right: 50px;
+        border-bottom: 2px groove rgb(149, 149, 149);
+        border-radius: 25px;
+        box-shadow: -2px -5px 10px rgb(41, 41, 41);
+    }
+
+    #name{
+        flex: 1;
+        padding-left: 20px;
+        margin-bottom: -10px;
+        font: 2em sans-serif;
+        font-weight: 700;
+        text-shadow: 1px 1px 0px ghostwhite, 1px -1px 0px ghostwhite, -1px 1px 0px ghostwhite, -1px -1px 0px ghostwhite;
+        color: black;
+    }
+
+    #option{
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+        /* border: 2px solid red; */
+    }
+
+    #option a{
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: transparent;
+        box-shadow: 2px 3px 10px rgb(79, 79, 79);
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 36;
+        transition: opacity 0.6s ease;
+    }
+
+    #option a:hover {
+        background-color: crimson;
+    }
+
+    #option:hover > :not(:hover) {
+        background-color: rgb(245, 186, 10);
+    }
+
+    #name:hover{
+        background-color: transparent;
+    }
+
+    #sudo{
+        flex: 0.5;
+    }
+
+    #container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 30%;
+        padding: 5% 0%;
+        border: 5px solid red;
+        box-shadow: 0px 4px 16px red;
+        border-radius: 25px;
+        flex-direction: column;
+        gap: 10px;
+        text-shadow: 2px 2px 4px rgb(147, 145, 145);
+        font-weight: 700;
+        font-size: 2rem;
+    }
+
+    #input{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    #input div a{
+        border-bottom:2px solid ghostwhite ;
+        border-top:2px solid ghostwhite ;
+        border-radius: 5px;
+        margin-right: 8px;
+        padding: 0px 4px;
+        
+
+    }
+
+    #input div input{
+        border-radius: 10px;
+        height: 30px;
+        width: 100%;
+    }
+
+    #btn{
+        /* border: 2px solid white; */
+        border-radius: 20px;
+        /* box-shadow: 2px 2px sandybrown; */
+        padding: 8px 16px;
+        background-color: transparent;
+        color: white;
+        font-size: 24;
+        font-weight: 700;
+    }
+
+    #btn:hover{
+        background-color: blue;
+        box-shadow: 2px 2px 7px rgb(108, 108, 110);
+    }
+
+    #BMI{
+        border-top: 2px solid ghostwhite;
+        border-bottom: 2px solid ghostwhite;
+        border-radius: 5px;
+    }
+
+</style>
+<body>
+    <nav>
+        <div id="logo"><img src="logo2.png"></div>
+        <div id="nav_bar">
+            <div id="name">TR FITNESS</div>
+            <div id="option">
+                <a href="#home">Home</a>
+                <a>BMI calculator</a>
+                <a href="#about_us">About us</a>
+            </div>
+        </div>
+        <div id="sudo"></div>
+    </nav>
+    <hr>
+    <div id="container">
+        <div id="input">
+            <div><a>Weight :</a><input type="text" id="Weight"></div>
+            <div><a>Height :</a><input type="text" id="Height"></div>
+        </div>
+        <div><input type="button" value="calculate" onclick="fun1()" id="btn"></div>
+        <div><a id="BMI">Your BMI</a></div>
+    </div>
+
+    <!-- <hr> -->
+    <!-- <footer>
+        <div>We are Social</div>
+    </footer> -->
+</body>
+
+<script>
+    function fun1(){
+        let Weight = document.getElementById("Weight").value;
+        let Height = document.getElementById("Height").value;
+
+        let BMI = Weight/(Height*Height);
+        // document.getElementById("BMI").innerHTML=(BMI);
+        if(BMI<18.5){
+            document.getElementById("BMI").innerHTML=(BMI+" UnderWeight");
+        }
+        else if(18.5<= BMI && BMI<24.9){
+            document.getElementById("BMI").innerHTML=(BMI+" Normal");
+        }
+        else if(25<=BMI && BMI<29.9){
+            document.getElementById("BMI").innerHTML=(BMI+" Over weight");
+        }
+        else{
+            document.getElementById("BMI").innerHTML=(BMI+" Obesity");
+        }
+    }
+</script>
+
+</html>
